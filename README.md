@@ -15,6 +15,8 @@ The flow of the attack is as follows:
 3. Now, attacker calls `harvest()` on contract, therefore making the swap from the victim contract from tokens A for tokens B, but since now A's tokens are much more abundant in the pool, contract will receive much less tokens B that it would initially. (First hack).
 4. Now, since the attacker holds much more tokens B than the victim contract - since he's swapped them at a lower price - he can use his very valuable tokens B to get tokens As back - receiving profit, since there'll be much more tokens As in the uniswap contract, since the victim contract has added even more, making the tokens B even more valuable.
 
+Useful Link: [Public Harvest Attack Vector Explained](https://medium.com/dedaub/yield-skimming-forcing-bad-swaps-on-yield-farming-397361fd7c72)
+
 # Lecture Notes from the Expert Solidity Encode Bootcamp:
 
 ## Class 1:
@@ -51,3 +53,27 @@ The flow of the attack is as follows:
 
 - [ ] Append the memory layout picture in here.= inside lesson 3's pdf.
 - [ ] Look at the references at the end of the lesson's pdfs.
+
+## Class 4:
+1. Different Approaches to upgradeability: 
+- [ ] data migration problem
+- [ ] Registry: data migration problem 
+- [ ] Function and data contracts separately
+- [ ] Strategy pattern: GnosisSafe. Approach is additive.
+- [ ] Proxy: it's kind of a function and data contracts approach as well.
+- [ ] Eternal Storage: it's not recommended since there needs to be a awareness is all the values of all the variables that will be in storage.
+2. Implementation and Proxies need to have the same storage layout.
+3. Always only append new items that are going to write to storage. Do not place the new storage data before the end of the storage layout.
+4. Proxied/Implementation contracts do not need to have a constructor, since the state initialized inside the constructor will only be available at the proxied contract, therefore, we won't be able to modify that state through `delegatecall`. It's not a problem in itself by having a constructor, but it's needless.
+5. The plugins - like the hardhat-upgrades - deploys a proxy and an implementation contract. It is taken care by the `.deployProxy()` function.
+6. Test upgrading the implementation in the unit tests, don't leave to test it in production or never test. 
+7. Diamond proxies are good because each function() is a different implementation contract (faucet) and therefore, there aren't that many functions in just one contract - having been submisse, therefore, to the 24Kb contract-size limit.
+8. The famous `initialize()` function should only be in the proxy contract, not in the proxied contract since state will be stored in the proxy contract.
+9. Foundry also supports debugging.  
+## Questions of Class 4:
+1. What are the main differences between UUPS and Transparent Proxies patterns?
+2. What are invariante tests in Foundry?
+3. What's a Model checker in Foundry?
+It is basically a compiler that already pre-tests the contract. It's not enabled by default.
+4. What's Differential testing in Foundry?
+5. What's tenderly for debugging?
