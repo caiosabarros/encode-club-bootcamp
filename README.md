@@ -19,6 +19,7 @@ Useful Link: [Public Harvest Attack Vector Explained](https://medium.com/dedaub/
 
 # Lecture Notes from the Expert Solidity Encode Bootcamp:
 
+# WEEK 1:
 ## Class 1:
 
 1. There is an upcoming of  modular blockchains in the space: each new chain/protocol will be specialized in something unique like data availability, scalability, etc.
@@ -77,3 +78,35 @@ Useful Link: [Public Harvest Attack Vector Explained](https://medium.com/dedaub/
 It is basically a compiler that already pre-tests the contract. It's not enabled by default.
 4. What's Differential testing in Foundry?
 5. What's tenderly for debugging?
+
+# WEEK 2:
+
+## Class 5:
+
+1. When an `overflow` kind of error happens in solidity runtime compiler, it means the error actually comes from the stack, because the code is actually being executed at the stack-level.
+2. HUFF > Yul when it comes to optimization.
+3. There are two kind of Yul notations:
+Standard Notation: a+b
+Reverse Polish Notation: a b add (which is same as a+b in standard notation)
+4. In the following example:
+Program Counter (looks at the bytecode list to be performed sequentially):
+```
+PUSH1 2
+PUSH1 4
+ADD
+``` 
+Description: We place 2 onto the stack. The 2 is left padded. Then, there's a placement of 4 onto the stack. Then, 4 is at the top of the stack and 2 is right below it. Then comes the ADD opcode to add these two top items in the stack, resulting in 6 as the top of the stack.
+5. The ?????? questions marks in remix debugger arre probably some non-ASCII caracter that can't be displayed.
+6. The `init code` is run whenever we deploy a contract. It:
+- First sets the memory pointer at 0x80 memory address.
+Then it runs on with the constructor's bytecode: The init code is always run, because there are some contract's without constructor.
+- It checks if any ether is sent in the constructor and reverts if the constructor is non-payable.
+- it performs what the specific constructor wants.
+7. When `wei` is sent in a tx, it's placed on the top of the stack.
+8. When we can a message CALL from a contract to another one, it writes the arguments to memory, it sets some place where the return value will be stored in memory, and then it copies the bytecode of the called through EXTCODECOPY (I guess it's this one) opcode and it executes the bytecode of the called contract through the copied bytecode.
+9. The opcodes don't get on memory, they get on the stack. On memory are only the memory values in memory contiguous addresses.
+10. An assembly block, we CAN referrence variables that aren't defined inside assembly block.
+11. EXCODECOPY differs from CODECOPY because it copies the bytecode from an external contract, whereas the later copies the bytecode from itself.
+
+## Questions:
+1. What's a precompiled contract?
