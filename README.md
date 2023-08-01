@@ -110,3 +110,8 @@ Then it runs on with the constructor's bytecode: The init code is always run, be
 
 ## Questions:
 1. What's a precompiled contract?
+Answer: These contracts are contracts implemented by developers of the blockchain clients and are useful for client functionaçity, not contracts implemented by developers of smart contracts.
+
+## Class 6:
+1. Error handling in YUL isn't the best thing of theirs.
+2. YUL may be used not in conjunction with Solidity, it can be used in a whole smart contract.
