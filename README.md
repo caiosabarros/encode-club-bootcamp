@@ -115,3 +115,26 @@ Answer: These contracts are contracts implemented by developers of the blockchai
 ## Class 6:
 1. Error handling in YUL isn't the best thing of theirs.
 2. YUL may be used not in conjunction with Solidity, it can be used in a whole smart contract.
+
+## Class 7:
+Some Encode CTF challenges.
+
+## Class 8:
+Gas Optimization:
+1. Avoid repeteable code.
+2. Break out of loops as early as possible
+3. a(x) is low cost and b(x) is expensive, so the ordering should be:
+a(x) || b(x)
+a(x) && b(x)
+4. If there's no need to store something, think of alternatives, like events.
+5. Don't keep intermediate values in storage, only the final result of the calculations.
+6. Costs of memory expansions increases quadratically, so rather than always expanding it, overwrite an no-more needed memory location.
+7. Use bytes32 whenever, because it's the most optmized storage type.
+8. bytes should be used over bytes[]
+9. Mapping is cheaper than array, but the cost difference is always insignificant.
+10. Uint8 isn't cheaper than uint256 because there are additional operations for a uint8 to fit the 32 bytes slots. It will be cheaper, of course, only if there's data types packing (the proccess of putting small variables types together in one slot).
+11. Inheriting from a contract will bring its storage layout as well.
+12. Public variables create a getter function, so it inscreases the size of the contract, increasing its cost. But, if I need it, I should declare it as public.
+13. Calling a function is cheap, it only is a JUMP opcode.
+14. Funtion selectors that are smaller will require less gas for being called. So, naming a function that will over and over with a simple and small name in hex is good.
+15. Custom errors rather than assert and require.
