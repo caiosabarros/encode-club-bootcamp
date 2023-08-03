@@ -40,7 +40,7 @@ contract DeleteItemsInDinamicArray {
     }
     
     // The only drawback of this function is that it deletes the element
-    // in the newly created array, not in the original array. 
+    // in the newly created array, not in the original array.
     function deleteRandomElement(uint _index) external {
         uint256 arrayLength = dinamicNumberArray.length; //12
         console.log("arrayLength: ", arrayLength);
