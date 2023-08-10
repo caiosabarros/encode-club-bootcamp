@@ -138,3 +138,17 @@ a(x) && b(x)
 13. Calling a function is cheap, it only is a JUMP opcode.
 14. Funtion selectors that are smaller will require less gas for being called. So, naming a function that will over and over with a simple and small name in hex is good.
 15. Custom errors rather than assert and require.
+
+# Class 12:
+
+1. Simplicity > Complexity: Great example: MAKERDAO.
+2. There are many libraries to handle percentages, decimals and other mathematical operations not natively supported by solidity. These are great to implement when developing DeFi products.
+3. Uniswap libraries are great also since uniswap has gone through the whole DeFi history.
+4. DOMAIN_SEPARATOR in EIP712 is useful for identifying a contract.
+5. Permit approval function came because there was a necessity of abstracting away the `msg.sender`, since the `msg.sender` could not always send txs on-chain.
+6. The `nonce` variable for the permit approval is NEEDED because it makes it impossible for replay attacks to happen.
+7. Bitshifting allows compressing data.
+8. `if iszero(x)` in assembly is much cheaper than `if x...` due to how JUMPI opcodes work.
+9. Modifiers increase code size, so probably better to make them as functions.
+10. Often, stablecoins intend to maintain their price pegged to something, like `dolar`, `gold`, etc.
+11. LUNA's destruction happened because it interacted with a algorithmitic stablecoin called UST. 
