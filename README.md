@@ -152,3 +152,48 @@ a(x) && b(x)
 9. Modifiers increase code size, so probably better to make them as functions.
 10. Often, stablecoins intend to maintain their price pegged to something, like `dolar`, `gold`, etc.
 11. LUNA's destruction happened because it interacted with a algorithmitic stablecoin called UST. 
+
+## Class 13:
+
+1. MEV searches are people who're looking for getting profits out of different ordering of transactions.
+2. The most MEV attacks are of types: arbitrage and sandwhich attacks. But there's also other kind of MEV, like: liquidations.
+3. As blocks are generated in every 12 seconds, there's enough time for MEV.
+4. MEV may be good somehow: for example, some protocols trust in arbitrage being made all the time. 
+5. Due to the competitive nature of MEV, gas prices can be enormous at times.
+6. MEV may lead to centralization.
+7. A Sandwhich attack is the combination of a front-running + a back-runnig transaction.
+8. Generalized front-running happens by simulating the transaction in a forked blockchain and checking if there's a profit in that. If so, a bigger gas fee is sent to the mempool with the same calldata as it was passed in the original transaction.
+9. MEV bots are incredibly profitable.
+10. Artemis is a framework for building fast bots in Rust.
+11. There's a way to make sure I won't be MEVed. That's by sending txs directly to FlashBots, instead of making them available in the public mempool.
+
+## Questions: 
+1. Is the DEXR Brazilian CDBC safe from MEV attacks? If not, how that may possible happen?
+
+## Class 14:
+
+This is probably the best paper lesson for me to study as part of what I'm building 
+
+Tools: 
+solc-verify
+verisol
+k language
+Scribble
+Halmos
+ZIION
+
+1. Symbolic Execution is more efficient to explore paths than fuzzind in Foundry because they use AST solvers.
+2. Taint Analysis: similar to symbolic execution but it focuses on identifying inputs from third-parties, including users, that would compromise the program.
+3. SMT-Checkers use the asserts and requires in order to be guided on where it can break the contract. It's quite easy to set up. It supports Foundry integration.
+4. Echidna: fuzz tests. Interesting and it seems to be implemented on Slither. Check this later.
+5. Scribble seems to be an excellent tool as well.
+6. Halmos is very used by the teacher.
+7. The detectors in slither are under slither/detectors. So, I can look into that when building my own static analyzer.
+8. Check the ZIION tool: What a flip is this?
+
+## Class 15:
+1. Verkle trees are much more efficient in memory-size aspects than Merkle Trees.
+2. There are current proposals for Ethereum to have compilers updated to support Rust, for example. Also, proposals for stateless Ethereum are a current thing. However, stateless Ethereum is not like Bitcoin, but rather having the purpose of dimishing the entry barrier for new nodes to get into the validation proccess.
+3. Uniswap V4 may have drawn inspiration from Crocswap. Interesting!
+4. Modifiers are compiled inline the function they're modifying. So, it's cheaper and more efficient to make them as functions if they're being used in multiple functions, since compiler just makes a JUMP to the functions instead of inlining their code multiple times they're called. 
+5. Link of [Encode CTF](https://www.solidityctf.xyz)
