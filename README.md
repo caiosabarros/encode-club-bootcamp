@@ -197,3 +197,20 @@ ZIION
 3. Uniswap V4 may have drawn inspiration from Crocswap. Interesting!
 4. Modifiers are compiled inline the function they're modifying. So, it's cheaper and more efficient to make them as functions if they're being used in multiple functions, since compiler just makes a JUMP to the functions instead of inlining their code multiple times they're called. 
 5. Link of [Encode CTF](https://www.solidityctf.xyz)
+
+## Class 16:
+Workshop from Tellor - Oracle Service: 
+1. Oracles also follow the descentralization-security-scalability dillema.
+2. Mitigating sources and manipulation attacks: have multiple API sources. Also, choose a wise aggregation: VWAP, TWAP, etc. Also, fallback oracles are a good way to handle possible oracles down times.
+3. Not only there needs to be multiple oracles, but if we've got multiple oracles and they've got the same data-source, then there's no profit in having multiple oracles. So, make sure I've got multiple oracles each with a different data-source.
+4. The team should be able to be away the oracle protocol to still function correctly. ("We don't need Vitalik to make sure Ethereum runs")
+5. When I create a company, protocol, whatever, write down my WHY and have it handy!
+6. Do not get into debt to build something. If it's a good idea, VCs will give you money to build it. If not, you need to improve it!
+
+# Tellor:
+The way that Tellor works is:
+Anyone can become a data-source, but they need to stake. When they provide data, they can disputed and lose 10% of their stake each time they provide bad data. So, there's an incentive for people to make sure the provided data is trust-worthy, because if not there's an incentive for others to profit on disputing the data provided.
+
+# Marlin (Serveless Backends for Web3.0):
+1. It's good for storing dynamic data: for example, if I want to store the a backend. Whereas IPFS is suitable for storing a static website - a website that only uses static files.
+
