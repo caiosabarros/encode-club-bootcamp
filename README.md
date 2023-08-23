@@ -214,3 +214,15 @@ Anyone can become a data-source, but they need to stake. When they provide data,
 # Marlin (Serveless Backends for Web3.0):
 1. It's good for storing dynamic data: for example, if I want to store the a backend. Whereas IPFS is suitable for storing a static website - a website that only uses static files.
 
+# Tenderly:
+It provides lots of tools to simulate contract interactions on-chain (which can be done in unit tests), it also makes it easy to simulate with the current state of the mainnet (which can be done with unit tests in a forking mode). It's basically a high-level cute interface for PMs that aren't programming-experienced. The cool thing is that it has a monitoring tool that makes it possible to track emitted events, it has a dashboard, etc (which is very useful for big protocols).
+
+## Encode:
+1. Open Data Hack powered by Filecoin: https://www.encode.club/open-data-hack
+2. Digital Identity with Onyx by JP Morgan: https://www.encode.club/digital-identity-hackathon
+3. Encode x MultiversX Hackathon: https://www.encode.club/multiversx-hackathon
+4. Encode x NEAR Horizon: https://www.encode.club/encode-near-horizon-hackathon
+5. (Search for new created companies and talk to the founders on ddiscord, etc) https://airtable.com/shrX5Q7HqIo7hrljW/tblaqYnoeg5wjGxqB/viwnUA3uhNurmtgNj
+6. MOVE is another language other than solidity that's pretty good to learn atm!
+7. https://miro.com/app/board/uXjVPdcDZBM=/
+8. email.axiom.xyz
